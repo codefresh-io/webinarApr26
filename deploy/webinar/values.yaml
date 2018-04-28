@@ -11,7 +11,7 @@ service:
   externalPort: 80
   internalPort: 3000
 ingress:
-  enabled: true
+  enabled: false
   hosts:
   - chart-example.local
   annotations: null
