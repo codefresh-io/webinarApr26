@@ -23,7 +23,7 @@ spec:
             - containerPort: {{ .Values.service.internalPort }}
           livenessProbe:
             httpGet:
-              path: /
+              path: /healtz
               port: {{ .Values.service.internalPort }}
           readinessProbe:
             httpGet:

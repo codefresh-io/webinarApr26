@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: webinar-webinar
+  labels:
+    app: webinar-1.0.321
+    chart: webinar-0.1.0
+    release: webinar
+    heritage: Tiller
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: webinar
+        release: webinar
+    spec:
+      containers:
+        - name: webinar
+          image: "verchol/webinardemo:manual1"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          livenessProbe:
+            httpGet:
+              path: /healtz
+              port: 3000
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+          resources:
+            {}
